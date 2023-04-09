@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/message_graph"
+    app:startDestination="@id/sessionHostFragment">
+    <fragment
+        android:id="@+id/sessionHostFragment"
+        android:name="com.example.wifiawareplayground.fragments.SessionHostFragment"
+        android:label="SessionHostFragment"
+        tools:layout="@layout/session_host">
+
+        <action
+            android:id="@+id/navigate_to_messages"
+            app:destination="@id/messagingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagingFragment"
+        android:name="com.example.wifiawareplayground.fragments.MessagingFragment"
+        android:label="MessagingFragment"
+        tools:layout="@layout/messaging"
+        />
+
+
+</navigation>
