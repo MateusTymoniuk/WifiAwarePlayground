@@ -9,6 +9,7 @@ import android.net.wifi.aware.SubscribeConfig;
 import android.net.wifi.aware.SubscribeDiscoverySession;
 import android.net.wifi.aware.WifiAwareSession;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,13 +84,15 @@ public class MessagingFragment extends Fragment {
                 .setServiceName(WifiAwareHelper.SERVICE_NAME)
                 .build();
 
-        mWifiAwareSession.publish(publishConfig, mDiscoverySessionCallback, null);
+        Handler handler = activity.getHandler();
+
+        mWifiAwareSession.publish(publishConfig, mDiscoverySessionCallback, handler);
 
         SubscribeConfig subscribeConfig = new SubscribeConfig.Builder()
                 .setServiceName(WifiAwareHelper.SERVICE_NAME)
                 .build();
 
-        mWifiAwareSession.subscribe(subscribeConfig, mDiscoverySessionCallback, null);
+        mWifiAwareSession.subscribe(subscribeConfig, mDiscoverySessionCallback, handler);
 
 //        initMockDataset();
     }
